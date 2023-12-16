@@ -4,23 +4,28 @@ import { useState } from 'react'
 import getRandomFromArr from './utils/getRandomFromArr'
 import Phrase from './components/Phrase'
 import Button from './components/Button'
-
- const arr = [1, 2, 3, 4]
+import arrPhotos from './utils/photos' 
+ 
 
 function App() {
   const initialPhrase = getRandomFromArr(phrases)
+  const initialPhoto = getRandomFromArr(arrPhotos)
   
   const [quoteRandom, setQuoteRandom] = useState(initialPhrase)
-  
+  const [photoRandom, setPhotoRandom] = useState(initialPhoto)
   const objStyle = {
-    backgroundImage: 'url(/fondo1.jpg)'
+    backgroundImage: `url(/fondo${photoRandom}.jpg)`
   }
 
   return (
-    <div style={objStyle}>
-      <h1>Galleta de la fortuna</h1>
-      <Phrase quoteRandom={quoteRandom} />
-      <Button setQuoteRandom={setQuoteRandom}/>
+    <div className='app' style={objStyle}>
+      <h1 className='app__title'>Galleta de la fortuna</h1>
+      <div className='app__card'>
+        <Phrase quoteRandom={quoteRandom} />
+        <Button 
+        setQuoteRandom={setQuoteRandom}
+        setPhotoRandom={setPhotoRandom}/>
+      </div>
     </div>
   )
 }

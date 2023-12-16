@@ -1,14 +1,16 @@
 import React from 'react'
 import getRandomFromArr from '../utils/getRandomFromArr'
 import phrases from "../utils/phrases.json";
+import arrPhotos from '../utils/photos.json'
 
-const Button = ({ setQuoteRandom }) => {
+const Button = ({ setQuoteRandom, setPhotoRandom }) => {
     const handleChangePhrase = () => {
      setQuoteRandom(getRandomFromArr(phrases))
+     setPhotoRandom(getRandomFromArr(arrPhotos))
     }
     
   return (
-    <button onClick={handleChangePhrase}>Ver otro</button>
+    <button className='app__btn' onClick={handleChangePhrase}>Ver otro</button>
   )
 }
 

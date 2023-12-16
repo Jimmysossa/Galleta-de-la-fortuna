@@ -3,7 +3,7 @@ import React from 'react'
 const Phrase = ({ quoteRandom }) => {
   return (
     <div>
-     { quoteRandom.phrase }
+     <p className="app__phrase">{quoteRandom.phrase }</p>
     </div>
   )
 }
